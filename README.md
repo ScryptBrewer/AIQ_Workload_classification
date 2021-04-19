@@ -27,7 +27,7 @@ Update the Acive IQ Server and credentials<br>
 
 Update the volsource.csv file<br>
 Here is the header line for that file Performance and Efficiancies are defined in the AIQ ocum server <br>
-Default Performance levels are <ul><li>Extreme Performance </li><li>Extreme for Database Data</li><li>Extreme for Database Shared Data</li><li>Extreme for Database Logs</li><li>Performance</li><li>Value</li><li>Unassigned]</li></ul>
+Default Performance levels are <ul><li>Extreme Performance </li><li>Extreme for Database Data</li><li>Extreme for Database Shared Data</li><li>Extreme for Database Logs</li><li>Performance</li><li>Value</li><li>Unassigned</li></ul>
 Default efficianciey levels are <ul><li>High</li><li>Low</li></ul><br>
 
 Execute the play<br>
