@@ -1,0 +1,15 @@
+---
+- name: Assign specified performance service level and/or storage effieiciency policy for '{{ filesharename }}' on cluster '{{ cluster }}' to value '{{ opt_service_level }}'
+  aiqum_file_shares:
+    state: '{{ state |default("present") }}'
+    hostip: '{{ aiqumserver }}'
+    port: '{{ aiqumport | default(443) }}'
+    user: '{{ aiqumuser }}'
+    password: '{{ aiqumpassword }}'
+    cluster: '{{ cluster }}'
+    svm: '{{ svm }}'
+    name: '{{ filesharename }}'
+    performance_service_level: '{{ opt_service_level | default(omit) }}'
+    storage_efficiency_policy: '{{ opt_storage_efficiency  | default(omit) }}'
+  no_log: false
+  register: results

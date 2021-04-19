@@ -1,0 +1,24 @@
+- hosts: localhost
+# Make sure AIQUM credentials are updated in aiqum_credentials.yml file before trying this playbook
+  vars_files: aiqum_credentials.yml
+
+  vars:
+    volsource: "volsource.csv"
+
+  tasks:
+    - name: read datafile "{{ volsource }}"
+      read_csv:
+        path: "{{ volsource }}"
+      register: volumedata
+
+    - name: Call task to update ActiveIQ
+      include_tasks: /playbooks/aiqum_task.yml
+      loop: "{{ volumedata.list }}"
+      loop_control:
+        label: "working on volume: {{item.volume}} on {{item.svm}} in {{item.cluster}}"
+      vars:
+        cluster: "{{ item.cluster }}"
+        svm: "{{ item.svm }}"
+        filesharename: "{{ item.volume }}"
+        opt_service_level: "{{ item.performance }}"
+        opt_storage_efficiency: "{{ item.efficiency }}"
