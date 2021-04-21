@@ -1,5 +1,5 @@
 ---
-- name: Assign specified performance service level and/or storage effieiciency policy for '{{ filesharename }}' on cluster '{{ cluster }}' to value '{{ opt_service_level }}'
+- name: Assign specified performance service level and/or storage efficiency policy for '{{ filesharename }}' on cluster '{{ cluster }}' to value '{{ opt_service_level }}'
   aiqum_file_shares:
     state: '{{ state |default("present") }}'
     hostip: '{{ aiqumserver }}'
