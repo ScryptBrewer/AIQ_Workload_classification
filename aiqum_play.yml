@@ -20,5 +20,5 @@
         cluster: "{{ item.cluster }}"
         svm: "{{ item.svm }}"
         filesharename: "{{ item.volume }}"
-        opt_service_level: "{{ item.performance }}"
-        opt_storage_efficiency: "{{ item.efficiency }}"
+        opt_service_level: "{{ item.performance | default(omit) }}"
+        opt_storage_efficiency: "{{ item.efficiency | default(omit) }}"
